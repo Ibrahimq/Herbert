@@ -1,15 +1,16 @@
 # HERBERT SOLVING VIA ******** ALGORITHM#
+
 class Herbert(object):
     face, position, targets, obstacles, answer = 'u', dict(), [], [], ''
     actions = {
-        'left': {'up': 'left', 'left': 'down', 'down': 'right', 'right': 'up', 'action': 'l'},
-        'right': {'up': 'right', 'left': 'up', 'down': 'left', 'right': 'down', 'action': 'r'},
-        'step': {'up': {'x': 0, 'y': -1},
-                 'down': {'x': 0, 'y':  1},
-                 'left': {'x': -1, 'y':  0},
-                 'right': {'x': 1, 'y':  0},
-                 'action': 's',
-                 }
+        'left' : {'up': 'left' , 'left': 'down', 'down': 'right', 'right': 'up', 'action': 'l' },
+        'right': {'up': 'right', 'left': 'up'  , 'down': 'left' , 'right': 'down', 'action': 'r'},
+        'step' : {'up'   :{'x': 0 , 'y': -1 },
+                  'down' :{'x': 0 , 'y':  1 },
+                  'left' :{'x': -1, 'y':  0 },
+                  'right':{'x': 1 , 'y':  0 },
+                  'action': 's',
+        }
     }
 
     def __init__(self, position, targets, obstacles):
@@ -20,7 +21,7 @@ class Herbert(object):
     # Actions and Agent Logic will be implemented here
     def take_actions(self, act):
         self.answer += self.actions[act]['action']
-        if act == 'left' or act == 'right':
+        if act == 'left' or act =='right':
             self.face = self.actions[act][self.face]
         elif act == 'step':
             self.position['x'] += self.actions[act][self.face]['x']
@@ -50,21 +51,24 @@ def read_problem(level):
 
 
 class Environment:
-        level = int()                                        # Specify level  and save it to level
-        problem, max_char = read_problem(20)                 # Read problem
-        h_location, targets, obstacles = dict(), [], []
-        for index_row, line in enumerate(problem):
-            for index_col, char in enumerate(line):
-                temp = dict()
-                temp['y'], temp['x'] = index_col, index_row
-                if char == 'o':
-                    targets.append(temp)
-                elif char == 'u':
-                    h_location = temp
-                elif char != '.':
-                    obstacles.append(temp)
-        herbert = Herbert(h_location, targets, obstacles)
+        level = 20                                              # Specify level  and save it to level
+        h_location, targets, obstacles, herbert, problem, max_char = dict(), [], [], None, [], 0
+
+        def __init__(self, level):
+            self.level = level
+            self.problem, self.max_char = read_problem(level)   # Read problem
+            for index_row, line in enumerate(self.problem):
+                for index_col, char in enumerate(line):
+                    temp = dict()
+                    temp['y'], temp['x'] = index_col, index_row
+                    if char == 'o':
+                        self.targets.append(temp)
+                    elif char == 'u':
+                        self.h_location = temp
+                    elif char != '.':
+                        self.obstacles.append(temp)
+            self.herbert = Herbert(self.h_location, self.targets, self.obstacles)
 
 
 if '__main__':
-    environment = Environment()
+    environment = Environment(20)
