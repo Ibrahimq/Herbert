@@ -120,8 +120,8 @@ class Herbert(object):
 
     def answer_reduction(self, answer):
         Strs = []
-        Functions = [['S(n):sS(n-1)', False], ['R(n):rR(n-1)', False], ['L(n):lL(n-1)', False], ['X:sr', False],
-                     ['Y:sl', False]]
+        Functions = [['a(N):sa(N-1)', False], ['b(N):rb(N-1)', False], ['c(N):lc(N-1)', False], ['x:sr', False],
+                     ['y:sl', False]]
         Reduced_answer, Patterns, StrTemp = "", "", ""
         chTemp = ''
         i = 0
@@ -148,27 +148,36 @@ class Herbert(object):
         # Find repeated characters and replace with pattern
         for s in Strs:
             if len(s) > 1 and s[0] == 's':
-                Patterns += ("S(" + str(len(s)) + ")")
+                Patterns += ("a(" + str(len(s)) + ")")
                 Functions[0][1] = True
             elif len(s) > 2 and s[0] == 'r':
-                Patterns += ("R(" + str(len(s)) + ")")
+                Patterns += ("b(" + str(len(s)) + ")")
                 Functions[1][1] = True
             elif len(s) > 2 and s[0] == 'l':
-                Patterns += ("L(" + str(len(s)) + ")")
+                Patterns += ("c(" + str(len(s)) + ")")
                 Functions[2][1] = True
             else:
                 Patterns += (s)
         # Replace patterns
-        Patterns = Patterns.replace("sr", "X")
-        Patterns = Patterns.replace("sl", "Y")
-        if Patterns.find("X") != -1:
+        Patterns = Patterns.replace("sr", "x")
+        Patterns = Patterns.replace("sl", "y")
+        if Patterns.find("x") != -1:
             Functions[3][1] = True
-        if Patterns.find("Y") != -1:
+        if Patterns.find("y") != -1:
             Functions[4][1] = True
+        endlines_count = 0
         for F in Functions:
             if F[1] == True:
                 Reduced_answer += F[0] + "\n"
+                endlines_count += 1
         Reduced_answer += Patterns
+        count = 0
+        for char in Reduced_answer:
+            if not (char == ':' or char == '(' or char == ')'):
+                count += 1
+        count -= 2*endlines_count
+        if len(answer) < count:
+            Reduced_answer = answer
         return Reduced_answer
 
     def solve(self):
@@ -182,6 +191,7 @@ class Herbert(object):
         best_solution_len = 1000000
         print(str(len(routes))+' Solutions found:')
         for solution, reduced_solution in zip(solutions, reduced_solutions):
+            # print(solution, reduced_solution)
             if len(reduced_solution) < best_solution_len:
                 best_solution_len = len(reduced_solution)
                 best_solution = reduced_solution
@@ -190,9 +200,19 @@ class Herbert(object):
         print('The best Solution of them is:')
         print(best_solution)
         print('with length of: '+str(best_solution_len))
-
 if '__main__':
-    environment = Environment(5)
+    flag = True
+    while(flag):
+        try:
+            level = raw_input("Please enter the level you want to solve: ")
+            if not level or not level.isdigit():
+                raise ValueError('Empty string')
+        except ValueError as error:
+            print(str(error) +", please enter a valid number level.")
+            continue
+        flag = False
+    environment = Environment(int(level))
     herbert = Herbert(environment.initial_location, environment.map, environment.max_char, environment.targets)
     environment.set_herbert(herbert)
     herbert.solve()
+    del herbert,environment

@@ -113,4 +113,5 @@ class AStar(object):
 def find(grid, start, end):
     solution = AStar(grid, start, end)
     str_path = solution.search()
+    del solution
     return str_path
