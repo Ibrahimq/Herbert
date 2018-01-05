@@ -2,7 +2,7 @@ from DS import *
 
 
 class Environment:
-    level, problem , max_char = int(), [], int()
+    level, problem, max_char = int(), [], int()
     herbert, initial_location, targets, map = None, dict(), [], []
 
     def __init__(self, level):
