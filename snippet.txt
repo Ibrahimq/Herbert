@@ -1,0 +1,14 @@
+dist, id = 1000, int()
+for node in self.targets:
+    if node.id not in ids:
+        local_dist = abs(node.x - self.position.x) + abs(node.y - self.position.y)
+        if local_dist < dist:
+            dist, id = local_dist, node.id
+self.targets[id].visited = True
+self.position.x = self.targets[id].x
+self.position.y = self.targets[id].y
+ids.append(id)
+if len(ids) == len(self.targets):
+    return ids
+else:
+    return self.find_path(ids)
