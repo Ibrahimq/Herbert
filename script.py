@@ -119,47 +119,77 @@ class Herbert(object):
         return path_in_actions
 
     def answer_reduction(self, answer):
-        reduced_answer = ''
-        Strs, ch, Str, i = [], '', "", 0
-        for char in answer:
+        Strs = []
+        Functions = [['S(n):sS(n-1)', False], ['R(n):rR(n-1)', False], ['L(n):lL(n-1)', False], ['X:sr', False],
+                     ['Y:sl', False]]
+        Reduced_answer, Patterns, StrTemp = "", "", ""
+        chTemp = ''
+        i = 0
+        # Divide string into substrings
+        for ch in answer:
             i += 1
-            if ch == char or ch == '':
-                ch = char
-                Str += ch
+            if chTemp == ch or chTemp == '':
+                chTemp = ch
+                StrTemp += chTemp
                 if len(answer) == i:
-                    Strs.append(Str)
-            elif ch != char:
-                if len(Str) > 1:
-                    Strs.append(Str)
-                    ch = char
-                    Strs.append(ch)
-                    ch = ''
-                    Str = ""
+                    Strs.append(StrTemp)
+            elif chTemp != ch:
+                if len(StrTemp) > 1:
+                    Strs.append(StrTemp)
+                    chTemp = ch
+                    Strs.append(chTemp)
+                    chTemp = ''
+                    StrTemp = ""
                 else:
-                    Strs.append(ch)
-                    Str = ''
-                    ch = char
-                    Str += ch
+                    Strs.append(chTemp)
+                    StrTemp = ''
+                    chTemp = ch
+                    StrTemp += chTemp
+        # Find repeated characters and replace with pattern
         for s in Strs:
             if len(s) > 1 and s[0] == 's':
-                reduced_answer += "S(" + str(len(s)) + ")"
-            elif len(s) > 1 and s[0] == 'r':
-                reduced_answer += "R(" + str(len(s)) + ")"
-            elif len(s) > 1 and s[0] == 'l':
-                reduced_answer += "L(" + str(len(s)) + ")"
+                Patterns += ("S(" + str(len(s)) + ")")
+                Functions[0][1] = True
+            elif len(s) > 2 and s[0] == 'r':
+                Patterns += ("R(" + str(len(s)) + ")")
+                Functions[1][1] = True
+            elif len(s) > 2 and s[0] == 'l':
+                Patterns += ("L(" + str(len(s)) + ")")
+                Functions[2][1] = True
             else:
-                reduced_answer += s
-        return reduced_answer
+                Patterns += (s)
+        # Replace patterns
+        Patterns = Patterns.replace("sr", "X")
+        Patterns = Patterns.replace("sl", "Y")
+        if Patterns.find("X") != -1:
+            Functions[3][1] = True
+        if Patterns.find("Y") != -1:
+            Functions[4][1] = True
+        for F in Functions:
+            if F[1] == True:
+                Reduced_answer += F[0] + "\n"
+        Reduced_answer += Patterns
+        return Reduced_answer
 
     def solve(self):
         routes = self.get_routes(self.targets, 0)
         solutions, reduced_solutions = [], []
         for route in routes:
-            solution, reduced_solution = self.find_path_movements(route)
+            reduced_solution, solution = self.find_path_movements(route)
             solutions.append(solution)
             reduced_solutions.append(reduced_solution)
+        best_solution = ''
+        best_solution_len = 1000000
+        print(str(len(routes))+' Solutions found:')
         for solution, reduced_solution in zip(solutions, reduced_solutions):
-            print (solution, reduced_solution)
+            if len(reduced_solution) < best_solution_len:
+                best_solution_len = len(reduced_solution)
+                best_solution = reduced_solution
+            print reduced_solution
+            print('')
+        print('The best Solution of them is:')
+        print(best_solution)
+        print('with length of: '+str(best_solution_len))
 
 if '__main__':
     environment = Environment(5)
