@@ -41,14 +41,14 @@ class Herbert(object):
     def get_routes(self, targets, fl):              #find multible paths
         solutions = list()
         if fl == 0:
-            print 'Calculating Paths...'
+            print '\nCalculating Paths...'
         for i, target in enumerate(targets):        # calculating shortest path for each start point.
             targets_copy = list(targets)            # Copying the target list
             del targets_copy[i]                     # delete current node from list
             solutions.append(self.find_path(target, # get path for a start point $target
             targets_copy, []))
         if fl == 0:
-            print('Paths Calculated')
+            print('Paths Calculated\n')
         return solutions
 
     def find_path(self, start, targets, path):      # find individual path
@@ -71,13 +71,12 @@ class Herbert(object):
     def find_path_movements(self, path):            # converting nodes order to a set ot Movements
         position = self.position                    # made by (left, right, up, down) actions to make it
         full_path = ''                              # easier for A* get the shortest path.
-        for node in path:
-            full_path += find(self.map, position, node)
-            position = node
+        full_path += find(self.map, position, path[0], path)
         full_path = full_path[:-1]
         answer = self.apply_path(full_path)
         reduced_answer = self.answer_reduction(answer)
-
+        print(answer)
+        print(reduced_answer)
         return reduced_answer, answer
 
     def apply_path(self, path_in_movements):        # maping the movements of (left, right, up, down) to
@@ -179,25 +178,24 @@ class Herbert(object):
         if len(answer) < count:
             Reduced_answer = answer
         return Reduced_answer
-
     def solve(self):
         routes = self.get_routes(self.targets, 0)
         solutions, reduced_solutions = [], []
+        print('Calculating actions...')
         for route in routes:
             reduced_solution, solution = self.find_path_movements(route)
             solutions.append(solution)
             reduced_solutions.append(reduced_solution)
+        print('Actions Calculated\n')
         best_solution = ''
         best_solution_len = 1000000
         print(str(len(routes))+' Solutions found:')
         for solution, reduced_solution in zip(solutions, reduced_solutions):
-            # print(solution, reduced_solution)
             if len(reduced_solution) < best_solution_len:
                 best_solution_len = len(reduced_solution)
                 best_solution = reduced_solution
             print reduced_solution
-            print('')
-        print('The best Solution of them is:')
+        print('\nThe best Solution of them is: ')
         print(best_solution)
         print('with length of: '+str(best_solution_len))
 if '__main__':
@@ -215,4 +213,4 @@ if '__main__':
     herbert = Herbert(environment.initial_location, environment.map, environment.max_char, environment.targets)
     environment.set_herbert(herbert)
     herbert.solve()
-    del herbert,environment
+    del herbert, environment

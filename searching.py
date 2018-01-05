@@ -8,27 +8,37 @@ columns = 25
 class Cell(object):
     x, y, reachable = int(), int(), bool()
     cost, heuristic, net_cost = int(), int(), int()
+    is_target = bool()
 
     def __init__(self, x, y, reachable):
         # setting some parameters for each cell
         self.x, self.y = x, y
         self.reachable, self.parent = reachable, None
         self.cost, self.heuristic, self.net_cost = 0, 0, 0      # net_cost=cost+heuristic
+        self.is_target = False
+
+    def set_target(self, is_target):
+        self.is_target = is_target
 
 
 class AStar(object):
     open, cells, closed = list(), list(), None
-    start, end = None, None
+    start, end, targets = None, None, []
 
-    def __init__(self, grid, start, end):
+    def __init__(self, grid, start, end, targets):
         self.open = []                          # list of unchecked neighbour cells
         heapq.heapify(self.open)                # keeps cells with lowest total_cost at top
         self.closed = set()                     # list of already checked cells
         self.cells = []                         # list of neighbour cells
-        self.start, self.end = Cell, Cell
-        self.init_grid(grid, start, end)
+        self.targets = [None] * len(targets)
+        self.init_grid(grid, start, end, targets)
 
-    def init_grid(self, grid, start, end):
+    def init_a_star(self):
+        self.open = []                          # list of unchecked neighbour cells
+        heapq.heapify(self.open)                # keeps cells with lowest total_cost at top
+        self.closed = set()                     # list of already checked cells
+
+    def init_grid(self, grid, start, end, targets):
         for i in range(rows):
             for j in range(columns):            # detecting the obstacles
                 if grid[j][i].node_type == 2:
@@ -38,8 +48,15 @@ class AStar(object):
                 self.cells.append(Cell(i, j, reachable))
                 if grid[j][i] == start:         # detecting the start and end
                     self.start = self.cell(i, j)
-                elif grid[j][i] == end:
-                    self.end = self.cell(i, j)
+        for target_id, target in enumerate(targets):
+            self.cells[target.x*columns+target.y].set_target(True)
+            self.targets[target_id] = self.cells[target.x*columns+target.y]
+            self.end = self.targets[0]
+
+    def reconstrunct_grid(self):
+        for cell in self.cells:
+            cell.parent = None
+            cell.cost, cell.net_cost, cell.heuristic = 0, 0, 0
 
     def cell(self, x, y):                       # returns the location to identify each cell
         return self.cells[x*columns+y]
@@ -60,17 +77,23 @@ class AStar(object):
         return cells
 
     def update_cell(self, adj, cell):           # update the details about the selected neighbor cell
+        # if adj.x == 10 and adj.y == 12:
+        #     print('Changed ' + str(cell))
         adj.cost = cell.cost + 1
         adj.heuristic = self.cell_heuristic(adj)
         adj.parent = cell
+        # print(adj.parent.x, adj.parent.y)
         adj.net_cost = adj.cost + adj.heuristic
 
     def display_path(self):
         route_path, str_path = [], ''
         cell = self.end
+        # print()
         while cell.parent is not None:          # storing the parents in list from end to start
             route_path.append([cell.x, cell.y])
             cell = cell.parent
+            # print('c lls parent: ' + str(cell.parent) + str((cell.x, cell.y)))
+            # print('a lls parent: ' + str(self.cells[cell.y*columns+cell.x].parent) + str((self.cells[cell.y*columns+cell.x].x, self.cells[cell.y*columns+cell.x].y)))
         route_path.reverse()                    # to get the path from start to end, as we went backward.
         temp = copy.copy(route_path[0])         # initiating temp with the start
         temp[0], temp[1] = self.start.x, self.start.y
@@ -84,34 +107,56 @@ class AStar(object):
             elif temp[1] > node[1]:
                 str_path += 'up,'
             temp = node
+        # print(route_path)
+        # print(str_path)
         return str_path
 
     def search(self):
-
-        heapq.heappush(self.open,               # pushing the first element in open queue
-                       (self.start.net_cost, self.start))
-        str_path = ''
-        while len(self.open):
-            net_cost, cell = heapq.heappop(self.open)
-            self.closed.add(cell)               # adding the checked cell to closed list
-            if cell is self.end:                # store path movements
-                str_path = self.display_path()
-                break
-            neighbours = self.neighbour(cell)   # getting the adjacent cells
-            for path in neighbours:
-                # if cell is not an obstacle and has not been already checked
-                if path.reachable and path not in self.closed:
-                    if (path.net_cost, path) in self.open:
-                        if path.cost > cell.cost + 1:     # selecting the cell with least cost
+        full_str_path = ''
+        while len(self.targets):
+            str_path = ''
+            next_start = None
+            heapq.heappush(self.open,  # pushing the first element in open queue
+                           (self.start.net_cost, self.start))
+            while len(self.open):
+                # print(self.start, self.end)
+                net_cost, cell = heapq.heappop(self.open)
+                self.closed.add(cell)               # adding the checked cell to closed list
+                if cell is self.end:                # store path movements
+                    cell.is_target = False
+                    next_start = cell
+                    for target in self.targets:
+                        if target.x == cell.x and target.y == cell.y:
+                            self.targets.remove(target)
+                    str_path = self.display_path()
+                    break
+                elif cell.is_target is True:
+                    cell.is_target = False
+                    for target in self.targets:
+                        if target.x == cell.x and target.y == cell.y:
+                            self.targets.remove(target)
+                            break
+                neighbours = self.neighbour(cell)   # getting the adjacent cells
+                for path in neighbours:
+                    # if cell is not an obstacle and has not been already checked
+                    if path.reachable and path not in self.closed:
+                        if (path.net_cost, path) in self.open:
+                            if path.cost > cell.cost + 1:     # selecting the cell with least cost
+                                self.update_cell(path, cell)
+                        else:
                             self.update_cell(path, cell)
-                    else:
-                        self.update_cell(path, cell)
-                        heapq.heappush(self.open, (path.net_cost, path))
-        return str_path
+                            heapq.heappush(self.open, (path.net_cost, path))
+            self.reconstrunct_grid()
+            self.init_a_star()
+            self.start = next_start
+            if len(self.targets) > 0:
+                self.end = self.targets[0]
+            full_str_path += str_path
+        return full_str_path
 
 
-def find(grid, start, end):
-    solution = AStar(grid, start, end)
+def find(grid, start, end, targets):
+    solution = AStar(grid, start, end, targets)
     str_path = solution.search()
     del solution
     return str_path

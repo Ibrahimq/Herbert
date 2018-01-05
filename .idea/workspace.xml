@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="script.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="script.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="126" column="9" lean-forward="false" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
+            <state relative-caret-position="184">
+              <caret line="197" column="49" lean-forward="true" selection-start-line="197" selection-start-column="49" selection-end-line="197" selection-end-column="49" />
               <folding>
                 <element signature="e#42#69#0" expanded="true" />
                 <element signature="e#244#442#0" expanded="false" />
@@ -23,34 +23,16 @@
                 <element signature="e#644#778#0" expanded="false" />
                 <element signature="e#846#937#0" expanded="false" />
                 <element signature="e#1051#1404#0" expanded="false" />
-                <element signature="e#2118#2729#0" expanded="false" />
-                <element signature="e#2838#3308#0" expanded="false" />
-                <element signature="e#3423#5846#0" expanded="false" />
-                <element signature="e#6224#6826#0" expanded="false" />
-                <element signature="e#6292#6415#0" expanded="false" />
-                <element signature="e#6463#6826#0" expanded="false" />
-                <element signature="e#6922#7374#0" expanded="false" />
+                <element signature="e#1487#2037#0" expanded="false" />
+                <element signature="e#2122#2733#0" expanded="false" />
+                <element signature="e#3429#5852#0" expanded="false" />
+                <element signature="e#5902#8123#0" expanded="false" />
+                <element signature="e#6230#6832#0" expanded="false" />
+                <element signature="e#6298#6421#0" expanded="false" />
+                <element signature="e#6469#6832#0" expanded="false" />
+                <element signature="e#6928#7380#0" expanded="false" />
+                <element signature="e#9062#9665#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="level3.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Problems/level3.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="level3.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/level_pack1/level3.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -58,12 +40,21 @@
       <file leaf-file-name="searching.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/searching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+            <state relative-caret-position="86">
+              <caret line="110" column="15" lean-forward="false" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="15" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <element signature="e#1068#1577#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="level4.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Problems/level4.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,17 +71,20 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>root</find>
-      <find>copy</find>
       <find>Press enter to begin</find>
       <find>Are you ready to position your fleet?</find>
       <find>Cell</find>
       <find>start</find>
       <find>initial_location</find>
-      <find>print</find>
       <find>astar</find>
       <find>cell_heuristic</find>
       <find>Astar_grid</find>
       <find>finalStr</find>
+      <find>end</find>
+      <find>find</find>
+      <find>paths ca</find>
+      <find>copy</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -141,16 +135,6 @@
             <path>
               <item name="Herbert" type="b2602c69:ProjectViewProjectNode" />
               <item name="Herbert" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Herbert" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Herbert" type="462c0819:PsiDirectoryNode" />
-              <item name="level_pack1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Herbert" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Herbert" type="462c0819:PsiDirectoryNode" />
-              <item name="Problems" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -254,14 +238,14 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13250366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16481775" sideWeight="0.14494875" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4659271" sideWeight="0.19472913" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16481775" sideWeight="0.8550512" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4659271" sideWeight="0.80527085" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24566929" sideWeight="0.5732064" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09350238" sideWeight="0.6368961" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -277,33 +261,33 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="35" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/searching.py</url>
+          <line>121</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="46" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.end.parent" />
+        <watch expression="self.end.reachable" />
+        <watch expression="self.end.x" />
+        <watch expression="self.end.y" />
+        <watch expression="self.start.parent" />
+        <watch expression="self.start.reachable" />
+        <watch expression="self.start.x" />
+        <watch expression="self.start.y" />
+        <watch expression="cell.parent" />
+        <watch expression="cell.reachable" />
+        <watch expression="cell.x" />
+        <watch expression="cell.y" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#42#69#0" expanded="true" />
-            <element signature="e#244#442#0" expanded="false" />
-            <element signature="e#461#628#0" expanded="false" />
-            <element signature="e#644#778#0" expanded="false" />
-            <element signature="e#846#937#0" expanded="false" />
-            <element signature="e#1051#1404#0" expanded="false" />
-            <element signature="e#2118#2729#0" expanded="false" />
-            <element signature="e#2838#3308#0" expanded="false" />
-            <element signature="e#3423#5846#0" expanded="false" />
-            <element signature="e#6224#6826#0" expanded="false" />
-            <element signature="e#6292#6415#0" expanded="false" />
-            <element signature="e#6463#6826#0" expanded="false" />
-            <element signature="e#6922#7374#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/level_pack4/level5.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -323,13 +307,15 @@
             <element signature="e#644#778#0" expanded="false" />
             <element signature="e#846#937#0" expanded="false" />
             <element signature="e#1051#1404#0" expanded="false" />
-            <element signature="e#2118#2729#0" expanded="false" />
-            <element signature="e#2838#3308#0" expanded="false" />
-            <element signature="e#3423#5846#0" expanded="false" />
-            <element signature="e#6224#6826#0" expanded="false" />
-            <element signature="e#6292#6415#0" expanded="false" />
-            <element signature="e#6463#6826#0" expanded="false" />
-            <element signature="e#6922#7374#0" expanded="false" />
+            <element signature="e#1487#2037#0" expanded="false" />
+            <element signature="e#2122#2733#0" expanded="false" />
+            <element signature="e#3429#5852#0" expanded="false" />
+            <element signature="e#5902#8123#0" expanded="false" />
+            <element signature="e#6230#6832#0" expanded="false" />
+            <element signature="e#6298#6421#0" expanded="false" />
+            <element signature="e#6469#6832#0" expanded="false" />
+            <element signature="e#6928#7380#0" expanded="false" />
+            <element signature="e#9062#9665#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -477,13 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/level2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Problems/level6.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -540,6 +519,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -555,13 +535,6 @@
         <state relative-caret-position="118">
           <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/level4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -595,25 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/searching.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-            <element signature="e#1068#1577#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/level3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/level_pack1/level3.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -622,10 +576,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/level2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="794">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/level1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/level3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/copy_reg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/copy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="126" column="9" lean-forward="false" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
+        <state relative-caret-position="184">
+          <caret line="197" column="49" lean-forward="true" selection-start-line="197" selection-start-column="49" selection-end-line="197" selection-end-column="49" />
           <folding>
             <element signature="e#42#69#0" expanded="true" />
             <element signature="e#244#442#0" expanded="false" />
@@ -633,14 +627,34 @@
             <element signature="e#644#778#0" expanded="false" />
             <element signature="e#846#937#0" expanded="false" />
             <element signature="e#1051#1404#0" expanded="false" />
-            <element signature="e#2118#2729#0" expanded="false" />
-            <element signature="e#2838#3308#0" expanded="false" />
-            <element signature="e#3423#5846#0" expanded="false" />
-            <element signature="e#6224#6826#0" expanded="false" />
-            <element signature="e#6292#6415#0" expanded="false" />
-            <element signature="e#6463#6826#0" expanded="false" />
-            <element signature="e#6922#7374#0" expanded="false" />
+            <element signature="e#1487#2037#0" expanded="false" />
+            <element signature="e#2122#2733#0" expanded="false" />
+            <element signature="e#3429#5852#0" expanded="false" />
+            <element signature="e#5902#8123#0" expanded="false" />
+            <element signature="e#6230#6832#0" expanded="false" />
+            <element signature="e#6298#6421#0" expanded="false" />
+            <element signature="e#6469#6832#0" expanded="false" />
+            <element signature="e#6928#7380#0" expanded="false" />
+            <element signature="e#9062#9665#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searching.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="110" column="15" lean-forward="false" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/level4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
